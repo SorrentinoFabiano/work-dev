@@ -11,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sorrentino.workdev.dto.ClientDTO;
@@ -19,6 +20,7 @@ import com.sorrentino.workdev.repositories.ClientRepository;
 import com.sorrentino.workdev.services.excptions.DataBaseException;
 import com.sorrentino.workdev.services.excptions.ResourceEntityNotFoundException;
 
+@Service
 public class ClientService {
 
 	@Autowired
@@ -28,13 +30,6 @@ public class ClientService {
 	public Page<ClientDTO> findAllPaged(PageRequest pageRequest) {
 		Page<Client> list = repository.findAll(pageRequest);
 		return list.map(x -> new ClientDTO(x));
-
-		// Ou.
-		/*
-		 * List<ClientDTO> listDTO = new ArrayList<>(); for (Client cat : list) {
-		 * listDTO.add(new ClientDTO(cat)); }
-		 */
-		// return listDTO;
 
 	}
 

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 
 import com.sorrentino.workdev.entities.Client;
 
+
 public class ClientDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -17,8 +18,6 @@ public class ClientDTO implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
 	private String name;	
-	
-	@Column(columnDefinition = "TEXT")
 	private String cpf;
 	private Double income;
 	private Integer children;
